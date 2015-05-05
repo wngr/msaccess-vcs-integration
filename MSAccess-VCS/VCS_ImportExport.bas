@@ -187,7 +187,7 @@ Err_TableNotFound:
     
     For Each aRelation In CurrentDb.Relations
         If Not (aRelation.name = "MSysNavPaneGroupsMSysNavPaneGroupToObjects" Or aRelation.name = "MSysNavPaneGroupCategoriesMSysNavPaneGroups") Then
-            If Application.Version >= 12# Then
+            If CurrentProject.FileFormat >= 12# Then
                 VCS_Relation.ExportRelation aRelation, obj_path & aRelation.name & ".txt"
             Else 'MDB database
                 VCS_Relation.ExportRelation aRelation, obj_path & obj_count & aRelation.table & ".txt"
