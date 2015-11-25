@@ -17,13 +17,13 @@ Public Sub ExportObject(obj_type_num As Integer, obj_name As String, file_path A
     Optional Ucs2Convert As Boolean = False)
 
     VCS_Dir.MkDirIfNotExist Left(file_path, InStrRev(file_path, "\"))
-    If Ucs2Convert Then
-        Dim tempFileName As String: tempFileName = VCS_File.TempFile()
-        Application.SaveAsText obj_type_num, obj_name, tempFileName
-        VCS_File.ConvertUcs2Utf8 tempFileName, file_path
-    Else
+'    If Ucs2Convert Then
+'        Dim tempFileName As String: tempFileName = VCS_File.TempFile()
+'        Application.SaveAsText obj_type_num, obj_name, tempFileName
+'        VCS_File.ConvertUcs2Utf8 tempFileName, file_path
+'    Else
         Application.SaveAsText obj_type_num, obj_name, file_path
-    End If
+'    End If
 End Sub
 
 ' Import a database object with optional UTF-8-to-UCS2 conversion.
